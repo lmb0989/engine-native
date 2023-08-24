@@ -62,3 +62,7 @@ Contributing to the Project
 --------------------------------
 
 cocos2d-x-lite is licensed under the [MIT License](https://opensource.org/licenses/MIT). We welcome participation!
+
+
+
+use node version: 11.15.0
