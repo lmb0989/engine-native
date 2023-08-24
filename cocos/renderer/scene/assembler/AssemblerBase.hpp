@@ -160,6 +160,11 @@ public:
         }
         return false;
     }
+
+	void onRecycle()
+	{
+
+	}
     
     /**
      *  @brief Resets data.

@@ -58,6 +58,7 @@ SE_DECLARE_FUNC(js_renderer_AssemblerBase_reset);
 SE_DECLARE_FUNC(js_renderer_AssemblerBase_setUseModel);
 SE_DECLARE_FUNC(js_renderer_AssemblerBase_isDirty);
 SE_DECLARE_FUNC(js_renderer_AssemblerBase_setDirty);
+SE_DECLARE_FUNC(js_renderer_AssemblerBase_onRecycle);
 SE_DECLARE_FUNC(js_renderer_AssemblerBase_AssemblerBase);
 
 extern se::Object* __jsb_cocos2d_renderer_MemPool_proto;

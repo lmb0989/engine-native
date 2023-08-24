@@ -962,6 +962,21 @@ static bool js_renderer_AssemblerBase_setDirty(se::State& s)
 }
 SE_BIND_FUNC(js_renderer_AssemblerBase_setDirty)
 
+static bool js_renderer_AssemblerBase_onRecycle(se::State& s)
+{
+    cocos2d::renderer::AssemblerBase* cobj = (cocos2d::renderer::AssemblerBase*)s.nativeThisObject();
+    SE_PRECONDITION2(cobj, false, "js_renderer_AssemblerBase_onRecycle : Invalid Native Object");
+    const auto& args = s.args();
+    size_t argc = args.size();
+    if (argc == 0) {
+        cobj->onRecycle();
+        return true;
+    }
+    SE_REPORT_ERROR("wrong number of arguments: %d, was expecting %d", (int)argc, 0);
+    return false;
+}
+SE_BIND_FUNC(js_renderer_AssemblerBase_onRecycle)
+
 SE_DECLARE_FINALIZE_FUNC(js_cocos2d_renderer_AssemblerBase_finalize)
 
 static bool js_renderer_AssemblerBase_constructor(se::State& s)
@@ -1002,6 +1017,7 @@ bool js_register_renderer_AssemblerBase(se::Object* obj)
     cls->defineFunction("setUseModel", _SE(js_renderer_AssemblerBase_setUseModel));
     cls->defineFunction("isDirty", _SE(js_renderer_AssemblerBase_isDirty));
     cls->defineFunction("setDirty", _SE(js_renderer_AssemblerBase_setDirty));
+    cls->defineFunction("onRecycle", _SE(js_renderer_AssemblerBase_onRecycle));
     cls->defineFunction("ctor", _SE(js_renderer_AssemblerBase_ctor));
     cls->defineFinalizeFunction(_SE(js_cocos2d_renderer_AssemblerBase_finalize));
     cls->install();

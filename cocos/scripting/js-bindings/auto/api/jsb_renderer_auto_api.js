@@ -304,6 +304,14 @@ object
 },
 
 /**
+ * @method onRecycle
+ */
+onRecycle : function (
+)
+{
+},
+
+/**
  * @method AssemblerBase
  * @constructor
  */
