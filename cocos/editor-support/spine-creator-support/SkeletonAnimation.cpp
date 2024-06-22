@@ -144,14 +144,20 @@ SkeletonAnimation::~SkeletonAnimation () {
     }
 }
 
+void SkeletonAnimation::setSpeed(float speed) {
+	if (speed >= 0) {
+		_speed = speed;
+	}
+}
+
 void SkeletonAnimation::update (float deltaTime) {
 	if (!_skeleton) return;
     if (!_paused) {
-        deltaTime *= _timeScale * GlobalTimeScale;
-        if (_ownsSkeleton) _skeleton->update(deltaTime);
-        _state->update(deltaTime);
-        _state->apply(*_skeleton);
-        _skeleton->updateWorldTransform();
+        deltaTime *= _timeScale * GlobalTimeScale * _speed;
+		if (_ownsSkeleton) _skeleton->update(deltaTime);
+		_state->update(deltaTime);
+		_state->apply(*_skeleton);
+		_skeleton->updateWorldTransform();
     }
 }
 

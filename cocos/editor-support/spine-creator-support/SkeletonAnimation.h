@@ -89,6 +89,7 @@ public:
     void setTrackDisposeListener (TrackEntry* entry, const DisposeListener& listener);
     void setTrackCompleteListener (TrackEntry* entry, const CompleteListener& listener);
     void setTrackEventListener (TrackEntry* entry, const EventListener& listener);
+	void setSpeed(float speed);
 
     virtual void onAnimationStateEvent (TrackEntry* entry, EventType type, Event* event);
     virtual void onTrackEntryEvent (TrackEntry* entry, EventType type, Event* event);
@@ -111,6 +112,7 @@ protected:
     DisposeListener         _disposeListener = nullptr;
     CompleteListener        _completeListener = nullptr;
     EventListener           _eventListener = nullptr;
+	float					_speed = 1;
 private:
     typedef SkeletonRenderer super;
 };

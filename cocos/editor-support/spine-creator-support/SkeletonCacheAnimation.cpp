@@ -72,12 +72,18 @@ namespace spine {
         CC_SAFE_RELEASE(_effect);
         stopSchedule();
     }
+
+	void SkeletonCacheAnimation::setSpeed(float speed) {
+		if (speed >= 0) {
+			_speed = speed;
+		}
+	}
     
     void SkeletonCacheAnimation::update(float dt) {
         if (_paused) return;
         
         auto gTimeScale = SkeletonAnimation::GlobalTimeScale;
-        dt *= _timeScale * gTimeScale;
+        dt *= _timeScale * gTimeScale * _speed;
         
         if (_isAniComplete) {
             if (_animationQueue.empty() && !_headAnimation) {

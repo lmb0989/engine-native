@@ -93,6 +93,7 @@ namespace spine {
         void setToSetupPose ();
         void setBonesToSetupPose ();
         void setSlotsToSetupPose ();
+		void setSpeed(float speed);
     private:
         float _timeScale = 1;
         bool _paused = false;
@@ -127,5 +128,6 @@ namespace spine {
         std::queue<AniQueueData*> _animationQueue;
         AniQueueData* _headAnimation = nullptr;
         CacheModeAttachUtil* _attachUtil = nullptr;
+		float					_speed = 1;
     };
 }

@@ -14796,6 +14796,25 @@ static bool js_cocos2dx_spine_SkeletonAnimation_setTrackEndListener(se::State& s
 }
 SE_BIND_FUNC(js_cocos2dx_spine_SkeletonAnimation_setTrackEndListener)
 
+static bool js_cocos2dx_spine_SkeletonAnimation_setSpeed(se::State& s)
+{
+    spine::SkeletonAnimation* cobj = (spine::SkeletonAnimation*)s.nativeThisObject();
+    SE_PRECONDITION2(cobj, false, "js_cocos2dx_spine_SkeletonAnimation_setSpeed : Invalid Native Object");
+    const auto& args = s.args();
+    size_t argc = args.size();
+    CC_UNUSED bool ok = true;
+    if (argc == 1) {
+        float arg0 = 0;
+        ok &= seval_to_float(args[0], &arg0);
+        SE_PRECONDITION2(ok, false, "js_cocos2dx_spine_SkeletonAnimation_setSpeed : Error processing arguments");
+        cobj->setSpeed(arg0);
+        return true;
+    }
+    SE_REPORT_ERROR("wrong number of arguments: %d, was expecting %d", (int)argc, 1);
+    return false;
+}
+SE_BIND_FUNC(js_cocos2dx_spine_SkeletonAnimation_setSpeed)
+
 static bool js_cocos2dx_spine_SkeletonAnimation_setStartListener(se::State& s)
 {
     spine::SkeletonAnimation* cobj = (spine::SkeletonAnimation*)s.nativeThisObject();
@@ -15082,6 +15101,7 @@ bool js_register_cocos2dx_spine_SkeletonAnimation(se::Object* obj)
     cls->defineFunction("setEmptyAnimations", _SE(js_cocos2dx_spine_SkeletonAnimation_setEmptyAnimations));
     cls->defineFunction("clearTracks", _SE(js_cocos2dx_spine_SkeletonAnimation_clearTracks));
     cls->defineFunction("setTrackEndListener", _SE(js_cocos2dx_spine_SkeletonAnimation_setTrackEndListener));
+    cls->defineFunction("setSpeed", _SE(js_cocos2dx_spine_SkeletonAnimation_setSpeed));
     cls->defineFunction("setStartListener", _SE(js_cocos2dx_spine_SkeletonAnimation_setStartListener));
     cls->defineFunction("ctor", _SE(js_cocos2dx_spine_SkeletonAnimation_ctor));
     cls->defineStaticFunction("createWithBinaryFile", _SE(js_cocos2dx_spine_SkeletonAnimation_createWithBinaryFile));
@@ -15976,6 +15996,25 @@ static bool js_cocos2dx_spine_SkeletonCacheAnimation_setBatchEnabled(se::State& 
 }
 SE_BIND_FUNC(js_cocos2dx_spine_SkeletonCacheAnimation_setBatchEnabled)
 
+static bool js_cocos2dx_spine_SkeletonCacheAnimation_setSpeed(se::State& s)
+{
+    spine::SkeletonCacheAnimation* cobj = (spine::SkeletonCacheAnimation*)s.nativeThisObject();
+    SE_PRECONDITION2(cobj, false, "js_cocos2dx_spine_SkeletonCacheAnimation_setSpeed : Invalid Native Object");
+    const auto& args = s.args();
+    size_t argc = args.size();
+    CC_UNUSED bool ok = true;
+    if (argc == 1) {
+        float arg0 = 0;
+        ok &= seval_to_float(args[0], &arg0);
+        SE_PRECONDITION2(ok, false, "js_cocos2dx_spine_SkeletonCacheAnimation_setSpeed : Error processing arguments");
+        cobj->setSpeed(arg0);
+        return true;
+    }
+    SE_REPORT_ERROR("wrong number of arguments: %d, was expecting %d", (int)argc, 1);
+    return false;
+}
+SE_BIND_FUNC(js_cocos2dx_spine_SkeletonCacheAnimation_setSpeed)
+
 static bool js_cocos2dx_spine_SkeletonCacheAnimation_setSkin(se::State& s)
 {
     CC_UNUSED bool ok = true;
@@ -16124,6 +16163,7 @@ bool js_register_cocos2dx_spine_SkeletonCacheAnimation(se::Object* obj)
     cls->defineFunction("setColor", _SE(js_cocos2dx_spine_SkeletonCacheAnimation_setColor));
     cls->defineFunction("bindNodeProxy", _SE(js_cocos2dx_spine_SkeletonCacheAnimation_bindNodeProxy));
     cls->defineFunction("setBatchEnabled", _SE(js_cocos2dx_spine_SkeletonCacheAnimation_setBatchEnabled));
+    cls->defineFunction("setSpeed", _SE(js_cocos2dx_spine_SkeletonCacheAnimation_setSpeed));
     cls->defineFunction("setSkin", _SE(js_cocos2dx_spine_SkeletonCacheAnimation_setSkin));
     cls->defineFunction("findSlot", _SE(js_cocos2dx_spine_SkeletonCacheAnimation_findSlot));
     cls->defineFunction("getSkeleton", _SE(js_cocos2dx_spine_SkeletonCacheAnimation_getSkeleton));

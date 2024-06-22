@@ -7096,6 +7096,16 @@ func
 },
 
 /**
+ * @method setSpeed
+ * @param {float} arg0
+ */
+setSpeed : function (
+float 
+)
+{
+},
+
+/**
  * @method setStartListener
  * @param {function} arg0
  */
@@ -7546,6 +7556,16 @@ nodeproxy
  */
 setBatchEnabled : function (
 bool 
+)
+{
+},
+
+/**
+ * @method setSpeed
+ * @param {float} arg0
+ */
+setSpeed : function (
+float 
 )
 {
 },
